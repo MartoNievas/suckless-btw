@@ -1,0 +1,12 @@
+[submodule "dwm"]
+	path = dwm
+	url = git@github.com:MartoNievas/dwm.git
+	branch = dwm-6.5
+[submodule "slstatus"]
+	path = slstatus
+	url = git@github.com:MartoNievas/slstatus.git
+	branch = main
+[submodule "st"]
+	path = st
+	url = git@github.com:MartoNievas/st.git
+	branch = master
