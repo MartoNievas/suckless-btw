@@ -1,0 +1,49 @@
+#
+# ~/.bashrc
+#
+
+# If not running interactively, don't do anything
+[[ $- != *i* ]] && return
+
+
+#Preferences
+alias ls='ls --color=auto'
+alias grep='grep --color=auto'
+alias neofetch='fastfetch'
+alias vim="nvim"
+#Config dwm
+alias cdwm="vim ~/dev/dwm-btw/config.def.h"
+alias mdwm="cd ~/dev/suckless-btw/dwm/; sudo rm config.h && sudo make clean install; cd ..; cd .."
+alias ddwm="cd ~/dev/dwm-btw/"
+#Config st 
+alias cst="vim ~/dev/st-btw/config.def.h"
+alias mst="cd ~/dev/suckless-btw/st/; sudo rm config.h && sudo make clean install; cd ..; cd .."
+alias dst="cd ~/dev/st-btw/"
+PS1='[\u@\h \W]\$ '
+
+#Config slstatus
+
+alias csl="vim ~/dev/slstatus-btw/config.def.h"
+alias msl="cd ~/dev/suckless-btw/slstatus/; sudo rm config.h && sudo make clean install; cd ..; cd .."
+alias dsl="cd ~/dev/slstatus-btw/"
+#Config rofi
+
+alias crofi="sudo vim ~/.config/rofi/config.rasi"
+alias trofi="sudo vim ~/.config/rofi/theme.rasi"
+alias colrofi="sudo vim ~/.config/rofi/colors.rasi"
+
+# Bash config 
+# Definición de Colores (ANSI)
+FG_ORANGE='\[\033[38;5;208m\]' # Naranja similar a tu barra
+FG_BLUE='\[\033[38;5;74m\]'   # Azul suave para carpetas
+FG_PINK='\[\033[38;5;205m\]'   # Rosa/Magenta para Git
+FG_WHITE='\[\033[38;5;15m\]'    # Blanco brillante
+C_RESET='\[\033[0m\]'
+
+# Función de Git mejorada (solo texto)
+parse_git_branch() {
+     git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/ \1/'
+}
+
+# Prompt estilo "Minimal-Warm"
+export PS1="${FG_ORANGE}\u${FG_WHITE}@${FG_WHITE}\h ${FG_BLUE}\w${FG_PINK}\$(parse_git_branch)${FG_WHITE} ❯ ${C_RESET}"

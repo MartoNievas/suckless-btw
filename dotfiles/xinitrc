@@ -1,0 +1,21 @@
+#!/bin/sh
+
+# Polkit (para reboot, poweroff, etc)
+# /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
+
+
+# Desactivar beep
+xset -b
+
+# Fondo de pantalla
+feh --bg-scale ~/Descargas/hola4k.jpg &
+
+# Status bar
+slstatus &
+
+# Compositor (OBLIGATORIO para alpha)
+picom & 
+
+# Window manager (SIEMPRE último)
+exec dwm
+
