@@ -8,6 +8,7 @@ declare -A LINKS=(
   [bashrc]="$HOME/.bashrc"
   [bash_profile]="$HOME/.bash_profile"
   [xinitrc]="$HOME/.xinitrc"
+  [rofi_config]="$HOME/.config/rofi/config.rasi"
 )
 
 #funcion de backup para enlaces simbolicos seguros

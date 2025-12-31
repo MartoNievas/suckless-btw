@@ -33,11 +33,12 @@ El sistema debe contar con los siguientes paquetes instalados:
 - git
 - xorg-server
 - xorg-xinit
-
+- rofi
+- pamixer
 En Arch Linux:
 
 ```bash
-sudo pacman -S base-devel git xorg-server xorg-xinit
+sudo pacman -S base-devel git xorg-server xorg-xinit rofi pamixer
 ```
 
 ---
@@ -49,7 +50,8 @@ Seguir los siguientes pasos para realizar la instalación:
 ### 1) Clonar el repositorio
 
 ```bash
-cd ~
+mkdir dev
+cd dev
 git clone git@github.com:MartoNievas/suckless-btw.git
 cd suckless-btw
 ```
@@ -73,7 +75,7 @@ El script:
 - crea enlaces simbólicos de los dotfiles
 - respalda archivos existentes con extensión `.bak`
 - prepara el entorno base para dwm, st y slstatus
-
+- instala tambien nvim con NvChad como IDE principal
 ---
 
 ## 🔗 Trabajo con submódulos
