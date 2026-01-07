@@ -8,7 +8,7 @@
 xset -b
 
 # Fondo de pantalla
-feh --bg-scale ~/Descargas/hola4k.jpg &
+feh --bg-scale ~/dev/suckless-btw/background.jpg &
 
 # Status bar
 slstatus &

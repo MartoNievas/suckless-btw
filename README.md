@@ -76,7 +76,7 @@ El script:
 - crea enlaces simbólicos de los dotfiles
 - respalda archivos existentes con extensión `.bak`
 - prepara el entorno base para dwm, st y slstatus
-- instala tambien nvim con NvChad como IDE principal
+- instala nvim con NvChad como IDE principal
 ---
 
 ## 🔗 Trabajo con submódulos
