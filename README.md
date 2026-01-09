@@ -29,10 +29,8 @@ suckless-btw/
 └── README.md
 ```
 ```
-```
-```
-## 📋 Prerrequisitos
 
+## 📋 Prerrequisito
 El sistema debe contar con los siguientes paquetes instalados:
 
 - base-devel
