@@ -11,19 +11,24 @@ y proveer un único punto de instalación reproducible.
 ## 📦 Estructura del repositorio
 
 ```text
+
 suckless-btw/
-├── dwm/        -> submódulo (repo dwm-btw, rama dwm-6.5)
-├── st/         -> submódulo (repo st-btw, rama master)
-├── slstatus/   -> submódulo (repo slstatus-btw, rama main)
-├── dotfiles/   -> dotfiles versionados
+├── dwm/              -> submódulo
+├── st/               -> submódulo
+├── slstatus/         -> submódulo
+├── dotfiles/
 │   ├── bashrc
 │   ├── bash_profile
-│   └── xinitrc
-├── install.sh  -> script de instalación / bootstrap
+│   ├── xinitrc
+│   ├── nvim/                 ← config completa de Neovim
+│   │   ├── init.lua
+│   │   └── lua/
+│   └── rofi/                 ← config de rofi
+│       └── config.rasi
+├── install.sh
 └── README.md
 ```
-
----
+```
 
 ## 📋 Prerrequisitos
 
