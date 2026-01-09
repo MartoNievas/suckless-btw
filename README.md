@@ -29,7 +29,8 @@ suckless-btw/
 └── README.md
 ```
 ```
-
+```
+```
 ## 📋 Prerrequisitos
 
 El sistema debe contar con los siguientes paquetes instalados:
