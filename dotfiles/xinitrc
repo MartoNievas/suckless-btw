@@ -18,5 +18,8 @@ slstatus &
 # Compositor (OBLIGATORIO para alpha)
 picom &
 
+#dunst
+dunst &
+
 # Window manager (SIEMPRE último)
 exec dwm
