@@ -11,22 +11,26 @@ alias neofetch='fastfetch'
 alias vim="nvim"
 
 #Config dwm
-#cambiar la ruta dwm-btw por suckless-btw/dwm para todo
-alias cdwm="vim ~/dev/dwm-btw/config.def.h"
+alias cdwm="vim ~/dev/suckless-btw/dwm/config.def.h"
 alias mdwm="cd ~/dev/suckless-btw/dwm/; sudo rm config.h && sudo make clean install; cd ..; cd .."
-alias ddwm="cd ~/dev/dwm-btw/"
+alias ddwm="cd ~/dev/suckless-btw/dwm/"
+
+#Dwm blocks
+alias cdwmb="vim ~/dev/suckless-btw/dwm/dwmblocks/blocks.def.h"
+alias mdwmb="cd ~/dev/suckless-btw/dwm/dwmblocks/; sudo rm blocks.h && sudo make clean install; cd ~/"
+alias ddwmb="cd ~/dev/suckless-btw/dwm/dwmblocks/"
+
 #Config st
-#cambiar la rura st-btw por suckless-btw/st para todo
-alias cst="vim ~/dev/st-btw/config.def.h"
+alias cst="vim ~/dev/suckless-btw/st/config.def.h"
 alias mst="cd ~/dev/suckless-btw/st/; sudo rm config.h && sudo make clean install; cd ..; cd .."
-alias dst="cd ~/dev/st-btw/"
+alias dst="cd ~/dev/suckless-btw/st/"
 PS1='[\u@\h \W]\$ '
 
 #Config slstatus
-#cambiar la ruta slstatus-btw por suckless-btw/slstatus para todo
-alias csl="vim ~/dev/slstatus-btw/config.def.h"
+alias csl="vim ~/dev/suckless-btw/slstatus/config.def.h"
 alias msl="cd ~/dev/suckless-btw/slstatus/; sudo rm config.h && sudo make clean install; cd ..; cd .."
-alias dsl="cd ~/dev/slstatus-btw/"
+alias dsl="cd ~/dev/suckless-btw/slstatus/"
+
 #Config rofi
 
 alias crofi="sudo vim ~/.config/rofi/config.rasi"
@@ -50,3 +54,7 @@ parse_git_branch() {
 export PS1="${FG_ORANGE}\u${FG_WHITE}@${FG_WHITE}\h ${FG_BLUE}\w${FG_PINK}\$(parse_git_branch)${FG_WHITE} ❯ ${C_RESET}"
 
 alias clean='echo "--- Limpiando caché de paquetes ---" && sudo paccache -rk 2 && echo "--- Eliminando huérfanos ---" && sudo pacman -Rs $(pacman -Qdtq) || echo "No hay huérfanos que eliminar" && echo "--- Limpiando logs antiguos ---" && sudo journalctl --vacuum-time=2weeks && echo "--- Limpiando caché de usuario ---" && rm -rf ~/.cache/* && echo "Sistema limpio!"'
+
+export DEBUGINFOD_URLS="https://debuginfod.archlinux.org"
+
+alias lss="ls | sort"

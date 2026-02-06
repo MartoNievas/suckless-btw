@@ -3,19 +3,20 @@
 # Polkit (para reboot, poweroff, etc)
 # /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
 
-
 # Desactivar beep
 xset -b
 
 # Fondo de pantalla
 feh --bg-scale ~/dev/suckless-btw/background.jpg &
 
-# Status bar
+#dwm blocks
+#dwmblocks &
+
+#slstatus
 slstatus &
 
 # Compositor (OBLIGATORIO para alpha)
-picom & 
+picom &
 
 # Window manager (SIEMPRE último)
 exec dwm
-
