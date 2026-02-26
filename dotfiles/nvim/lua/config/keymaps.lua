@@ -1,7 +1,12 @@
--- Keymaps are automatically loaded on the VeryLazy event
--- Default keymaps that are always set: https://github.com/LazyVim/LazyVim/blob/main/lua/lazyvim/config/keymaps.lua
--- Add any additional keymaps here
+-- Borrar sin afectar el portapapeles (Normal y Visual mode)
+-- 'd' ahora borra sin copiar
+vim.keymap.set({ "n", "v" }, "d", '"_d', { desc = "Delete without yanking" })
+vim.keymap.set({ "n", "v" }, "D", '"_D', { desc = "Delete line without yanking" })
 
-vim.keymap.set({ "v" }, "d", '"_d')
-vim.keymap.set({ "v" }, "x", '"_x')
-vim.keymap.set({ "n" }, "<leader>e", ":Neotree toggle<CR>")
+-- 'c' (change) suele ser molesto porque también copia, lo mandamos al registro negro
+vim.keymap.set({ "n", "v" }, "c", '"_c', { desc = "Change without yanking" })
+vim.keymap.set({ "n", "v" }, "C", '"_C', { desc = "Change line without yanking" })
+
+-- Para que 'x' (borrar carácter) se comporte como un "Cortar" real (que sí copie):
+-- No mapeamos 'x' al registro negro, o lo mapeamos explícitamente al registro +
+vim.keymap.set({ "n", "v" }, "x", '"*x', { desc = "Cut character to system clipboard" })

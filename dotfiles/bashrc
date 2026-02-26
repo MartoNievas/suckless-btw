@@ -58,3 +58,5 @@ alias clean='echo "--- Limpiando caché de paquetes ---" && sudo paccache -rk 2 
 export DEBUGINFOD_URLS="https://debuginfod.archlinux.org"
 
 alias lss="ls | sort"
+
+alias up=". /usr/local/bin/up.sh"

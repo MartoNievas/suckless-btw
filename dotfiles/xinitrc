@@ -7,7 +7,7 @@
 xset -b
 
 # Fondo de pantalla
-feh --bg-scale ~/dev/suckless-btw/background.jpg &
+feh --bg-scale ~/dev/suckless-btw/background.png &
 
 #dwm blocks
 #dwmblocks &
