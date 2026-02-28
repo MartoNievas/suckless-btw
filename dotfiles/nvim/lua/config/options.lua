@@ -8,14 +8,13 @@ vim.g.maplocalleader = " "
 vim.g.lazyvim_check_order = false
 
 vim.diagnostic.config({
-    virtual_text = false, -- Esto quita el texto largo que ves a la derecha en tu imagen
     float = {
-        focusable = false,
-        style = "minimal",
+        source = "always", -- Muestra qué componente lanzó el error
         border = "rounded",
-        source = "always",
-        header = "",
-        prefix = "",
-        wrap = true, -- <--- ESTO hará que el error tenga saltos de línea en el cuadro flotante
+        focusable = true,
+        -- Esto fuerza que el texto no se quede en una sola línea eterna
+        max_width = 80,
+        max_height = 20,
+        wrap = true, -- Importante para habilitar el salto de línea
     },
 })
