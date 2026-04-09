@@ -50,6 +50,9 @@ parse_git_branch() {
   git branch 2>/dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/ \1/'
 }
 
+# Valgrind debug flags
+export DEBUGINFOD_URLS="https://debuginfod.archlinux.org"
+
 # Prompt estilo "Minimal-Warm"
 export PS1="${FG_ORANGE}\u${FG_WHITE}@${FG_WHITE}\h ${FG_BLUE}\w${FG_PINK}\$(parse_git_branch)${FG_WHITE} ❯ ${C_RESET}"
 
@@ -60,3 +63,7 @@ export DEBUGINFOD_URLS="https://debuginfod.archlinux.org"
 alias lss="ls | sort"
 
 alias up=". /usr/local/bin/up.sh"
+alias dot="cd ~/dev/suckless-btw/dotfiles/"
+
+#Smalltalk
+alias cuis="cd ~/Escritorio/linux64/ && (./run.sh &) && exit"
