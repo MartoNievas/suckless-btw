@@ -1,25 +1,29 @@
 #!/bin/sh
 
-# Polkit (para reboot, poweroff, etc)
-# /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
-
-# Desactivar beep
-xset -b
+# Desactivar beep (el pitido molesto de la placa)
+xset -b &
 
 # Fondo de pantalla
 feh --bg-scale ~/dev/suckless-btw/background.png &
 
-# Hotkey para cambio de idioma
-setxkbmap -layout us,es -option 'grp:alt_shift_toggle'
+# Hotkey para cambio de idioma (US y ES con Alt+Shift)
+setxkbmap -layout us,es -option 'grp:alt_shift_toggle' &
 
-#slstatus
-slstatus &
+# Bloqueo de pantalla integrado con systemd sleep
+# Esto asegura que slock se ejecute ANTES de que la PC se duerma
+xss-lock -- slock &
 
-# Compositor (OBLIGATORIO para alpha)
+# Compositor (Picom es clave para transparencias en dwm)
 picom &
 
-#dunst
+# Notificaciones
 dunst &
 
-# Window manager (SIEMPRE último)
+# Barra de estado
+slstatus &
+
+# Un agente de polkit ligero (opcional pero recomendado)
+# /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
+
+# Lanzar dwm
 exec dwm

@@ -39,6 +39,7 @@ El sistema debe contar con los siguientes paquetes instalados:
 - xorg-xinit
 - rofi
 - pamixer
+- xss-lock
 
 En Arch Linux:
 
