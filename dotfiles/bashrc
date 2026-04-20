@@ -54,7 +54,7 @@ parse_git_branch() {
 export DEBUGINFOD_URLS="https://debuginfod.archlinux.org"
 
 # Prompt estilo "Minimal-Warm"
-export PS1="${FG_ORANGE}\u${FG_WHITE}@${FG_WHITE}\h ${FG_BLUE}\w${FG_PINK}\$(parse_git_branch)${FG_WHITE} ❯ ${C_RESET}"
+export PS1="${FG_ORANGE}\u${FG_WHITE} ${FG_WHITE}\h ${FG_BLUE}\w${FG_PINK}\$(parse_git_branch)${FG_WHITE} ❯ ${C_RESET}"
 
 alias clean='echo "--- Limpiando caché de paquetes ---" && sudo paccache -rk 2 && echo "--- Eliminando huérfanos ---" && sudo pacman -Rs $(pacman -Qdtq) || echo "No hay huérfanos que eliminar" && echo "--- Limpiando logs antiguos ---" && sudo journalctl --vacuum-time=2weeks && echo "--- Limpiando caché de usuario ---" && rm -rf ~/.cache/* && echo "Sistema limpio!"'
 

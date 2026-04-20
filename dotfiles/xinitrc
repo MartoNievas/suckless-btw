@@ -7,7 +7,7 @@ xset -b &
 feh --bg-scale ~/dev/suckless-btw/background.png &
 
 # Hotkey para cambio de idioma (US y ES con Alt+Shift)
-setxkbmap -layout us,es -option 'grp:alt_shift_toggle' &
+setxkbmap -layout "us,es" -variant "," -option "grp:alt_shift_toggle"
 
 # Bloqueo de pantalla integrado con systemd sleep
 # Esto asegura que slock se ejecute ANTES de que la PC se duerma

@@ -40,11 +40,11 @@ El sistema debe contar con los siguientes paquetes instalados:
 - rofi
 - pamixer
 - xss-lock
-
+- inetutils
 En Arch Linux:
 
 ```bash
-sudo pacman -S base-devel git xorg-server xorg-xinit rofi pamixer
+sudo pacman -S base-devel git xorg-server xorg-xinit rofi pamixer xss-lock inetutils
 ```
 
 ---

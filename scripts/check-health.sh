@@ -39,7 +39,7 @@ else
 fi
 
 # 4. Zombies (Importante para dwm)
-ZOMBIES=$(ps aux | grep 'Z' | grep -v grep | wc -l)
+ZOMBIES=$(ps -eo stat | grep -c '^Z')
 if [ "$ZOMBIES" -eq 0 ]; then
   echo -e "[${GREEN}OK${NC}] Procesos: No hay zombies devorando recursos."
 else
