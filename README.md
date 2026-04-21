@@ -13,20 +13,17 @@ y proveer un único punto de instalación reproducible.
 ```text
 
 suckless-btw/
-├── dwm/              -> submódulo
-├── st/               -> submódulo
-├── slstatus/         -> submódulo
+├── dwm/        (submodule)
+├── st/         (submodule)
+├── slstatus/   (submodule)
+├── slock/      (submodule o normal, te explico abajo)
+
 ├── dotfiles/
-│   ├── bashrc
-│   ├── bash_profile
-│   ├── xinitrc
-│   ├── nvim/                 ← config completa de Neovim
-│   │   ├── init.lua
-│   │   └── lua/
-│   └── rofi/                 ← config de rofi
-│       └── config.rasi
+├── scripts/
+
 ├── install.sh
-└── README.md
+├── README.md
+└── .gitmodules
 ```
 ```
 

@@ -10,3 +10,7 @@
 	path = st
 	url = git@github.com:MartoNievas/st.git
 	branch = master
+[submodule "slock"]
+	path = slock
+	url = git@github.com:MartoNievas/slock.git
+  branch = master
