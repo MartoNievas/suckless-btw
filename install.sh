@@ -1,45 +1,55 @@
 #!/bin/bash
 set -e
 
-#Declaracion de variables
 DOTFILES_DIR="$HOME/dev/suckless-btw/dotfiles"
 
+# Lista de enlaces: [NOMBRE_EN_DOTFILES]="RUTA_DESTINO_EN_HOME"
 declare -A LINKS=(
+  [zshrc]="$HOME/.zshrc"
+  [zprofile]="$HOME/.zprofile"
   [bashrc]="$HOME/.bashrc"
   [bash_profile]="$HOME/.bash_profile"
   [xinitrc]="$HOME/.xinitrc"
   [rofi_config]="$HOME/.config/rofi/config.rasi"
-  [nvim_config]="$HOME/.config/nvim"
+  [nvim]="$HOME/.config/nvim"
 )
 
-#funcion de backup para enlaces simbolicos seguros
-backup() {
-  src="$1"
-  dst="$2"
+backup_and_link() {
+  local src="$1"
+  local dst="$2"
 
   if [ ! -e "$src" ]; then
-    echo "⚠️  No existe el origen: $src"
+    echo "[⚠️]  No se encontró el archivo original en: $src"
     return
   fi
 
+  # Crear el directorio padre si no existe (ej. .config/rofi)
   mkdir -p "$(dirname "$dst")"
 
-  if [ -e "$dst" ] || [ -L "$dst" ]; then
-    mv "$dst" "$dst.bak"
+  # Manejar si el destino ya existe
+  if [ -L "$dst" ]; then
+    rm "$dst" # Si es un link viejo, lo quitamos
+  elif [ -e "$dst" ]; then
+    mv "$dst" "$dst.bak" # Si es un archivo real, backup de seguridad
+    echo "📦 Backup creado: $dst.bak"
   fi
 
   ln -s "$src" "$dst"
+  echo "[✅] Enlazado: $src -> $dst"
 }
 
+# 1. Instalación de paquetes necesarios
+echo "Instalando dependencias de sistema..."
+sudo pacman -S --needed --noconfirm base-devel nvim zsh bash-completion
+
+# 2. Crear los enlaces simbólicos
+echo "Creando symlinks..."
 for file in "${!LINKS[@]}"; do
-  echo "Creando enlace simbolico para .$file..."
-  backup "$DOTFILES_DIR/$file" "${LINKS[$file]}"
+  backup_and_link "$DOTFILES_DIR/$file" "${LINKS[$file]}"
 done
 
-sudo pacman -S --noconfirm nvim
-
-#volver al home
-cd ~/
-rm -rf ~/suckless-btw
-echo "Intalacion completada!!!"
-echo "De compilar dwm, st, slstatus para continuar..."
+# 3. Finalización (QUITÉ EL RM -RF)
+echo ""
+echo "[🚀] Instalación completada con éxito."
+echo "Tus archivos originales están en: $DOTFILES_DIR"
+echo "Recuerda entrar en las carpetas de dwm, st y slstatus para hacer 'sudo make clean install'."

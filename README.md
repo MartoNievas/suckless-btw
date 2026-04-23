@@ -1,161 +1,128 @@
 # suckless-btw
 
-Meta-repositorio para orquestar mi setup suckless basado en **dwm**, **st** y **slstatus**.
-
-Este repositorio no contiene código propio de dwm/st/slstatus.
-Utiliza **git submodules** para fijar versiones exactas de cada proyecto
-y proveer un único punto de instalación reproducible.
+Meta-repositorio para orquestar un setup suckless basado en **dwm**, **st** y **slstatus**.
+No contiene código propio de dwm/st/slstatus. Utiliza **git submodules** para fijar versiones
+exactas de cada proyecto y proveer un único punto de instalación reproducible.
 
 ---
 
-## 📦 Estructura del repositorio
+## Estructura del repositorio
 
-```text
-
+```
 suckless-btw/
 ├── dwm/        (submodule)
 ├── st/         (submodule)
 ├── slstatus/   (submodule)
-├── slock/      (submodule o normal, te explico abajo)
-
+├── slock/      (submodule)
 ├── dotfiles/
 ├── scripts/
-
 ├── install.sh
 ├── README.md
 └── .gitmodules
 ```
-```
 
-## 📋 Prerrequisito
-El sistema debe contar con los siguientes paquetes instalados:
+---
 
-- base-devel
-- git
-- xorg-server
-- xorg-xinit
-- rofi
-- pamixer
-- xss-lock
-- inetutils
-En Arch Linux:
+## Prerrequisitos
+
+### Laptop (Intel)
 
 ```bash
-sudo pacman -S base-devel git xorg-server xorg-xinit rofi pamixer xss-lock inetutils
+sudo pacman -S base-devel git xorg-server xorg-xinit rofi pamixer xss-lock inetutils gsimplecal
+```
+
+Paquetes AUR (requiere `yay`):
+
+```bash
+yay -S vesktop ttf-jetbrains-mono-nerd
+```
+
+### Desktop (AMD CPU + AMD GPU)
+
+```bash
+sudo pacman -S base-devel git xorg-server xorg-xinit rofi pamixer xss-lock inetutils gsimplecal \
+               mesa vulkan-radeon xf86-video-amdgpu lm_sensors
+```
+
+Paquetes AUR (requiere `yay`):
+
+```bash
+yay -S vesktop ttf-jetbrains-mono-nerd
 ```
 
 ---
 
-## ⚙️ Instalación
+## Instalacion
 
-Seguir los siguientes pasos para realizar la instalación:
-
-### 1) Clonar el repositorio
+### 1. Clonar el repositorio
 
 ```bash
-mkdir dev
-cd dev
+mkdir -p ~/dev && cd ~/dev
 git clone git@github.com:MartoNievas/suckless-btw.git
 cd suckless-btw
 ```
 
-### 2) Inicializar submódulos
+### 2. Inicializar submodulos
 
 ```bash
 git submodule update --init --recursive
 ```
 
-### 3) Ejecutar el instalador
+### 3. Ejecutar el instalador
 
 ```bash
 chmod +x install.sh
 ./install.sh
 ```
 
-El script:
+El script se encarga de:
 
-- inicializa los submódulos
-- crea enlaces simbólicos de los dotfiles
-- respalda archivos existentes con extensión `.bak`
-- prepara el entorno base para dwm, st y slstatus
-- instala nvim con NvChad como IDE principal
+- inicializar los submodulos
+- crear enlaces simbolicos de los dotfiles
+- respaldar archivos existentes con extension `.bak`
+- preparar el entorno base para dwm, st y slstatus
+- instalar nvim con LazyVim como IDE principal
+
 ---
 
-## 🔗 Trabajo con submódulos
+## Trabajo con submodulos
 
-Este repositorio utiliza **git submodules** para fijar versiones específicas
-de `dwm`, `st` y `slstatus`.
-
-### 📌 Actualizar TODOS los submódulos a la última versión de sus ramas
+### Actualizar todos los submodulos
 
 ```bash
 git submodule update --remote --merge
-```
-
-Luego, guardar los cambios en el meta-repo:
-
-```bash
 git commit -am "Update submodules"
 git push
 ```
 
----
-
-### 📌 Actualizar un submódulo específico
-
-#### dwm
+### Actualizar un submodulo especifico
 
 ```bash
-cd dwm
-git checkout dwm-6.5
+cd <submodulo>
+git checkout <rama>
 git pull
 cd ..
-git add dwm
-git commit -m "Update dwm submodule"
-git push
-```
-
-#### st
-
-```bash
-cd st
-git checkout master
-git pull
-cd ..
-git add st
-git commit -m "Update st submodule"
-git push
-```
-
-#### slstatus
-
-```bash
-cd slstatus
-git checkout main
-git pull
-cd ..
-git add slstatus
-git commit -m "Update slstatus submodule"
+git add <submodulo>
+git commit -m "Bump <submodulo>"
 git push
 ```
 
 ---
 
-## 🔄 Workflow recomendado
+## Workflow recomendado
 
-### 🔹 Actualizar un proyecto (ej: dwm)
+Tras hacer cambios dentro de un submodulo, registrar el nuevo commit en el meta-repo:
 
 ```bash
-cd dwm
-# trabajar normalmente (commits, patches, etc.)
+cd <submodulo>
 git push
 cd ..
-git add dwm
-git commit -m "Bump dwm"
+git add <submodulo>
+git commit -m "Bump <submodulo>"
 git push
 ```
 
-### 🔹 Actualizar todo el setup de una sola vez
+Para actualizar todo el setup de una sola vez:
 
 ```bash
 git submodule update --remote --merge
@@ -165,11 +132,9 @@ git push
 
 ---
 
-## 🧠 Notas
+## Notas
 
-- El meta-repo **no duplica código**
-- Los submódulos apuntan a ramas específicas
+- El meta-repo no duplica codigo
+- Los submodulos apuntan a ramas especificas
 - El estado del sistema es completamente reproducible
-- Este repositorio actúa como **fuente única de verdad** para el setup
-
-
+- Este repositorio actua como fuente unica de verdad para el setup
