@@ -10,3 +10,5 @@ vim.keymap.set({ "n", "v" }, "C", '"_C', { desc = "Change line without yanking" 
 -- Para que 'x' (borrar carácter) se comporte como un "Cortar" real (que sí copie):
 -- No mapeamos 'x' al registro negro, o lo mapeamos explícitamente al registro +
 vim.keymap.set({ "n", "v" }, "x", '"*x', { desc = "Cut character to system clipboard" })
+
+return {}
