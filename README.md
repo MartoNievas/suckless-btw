@@ -75,13 +75,22 @@ chmod +x install.sh
 ./install.sh
 ```
 
+Opciones disponibles:
+
+```bash
+./install.sh --dry-run    # Simular sin hacer cambios
+./install.sh --force      # Forzar recompilacion de todo
+./install.sh --uninstall # Desinstalar y restaurar backups
+```
+
 El script se encarga de:
 
-- inicializar los submodulos
+- detectar el tipo de machine (ThinkPad T480 o Desktop Ryzen)
+- verificar dependencias (make, gcc, clang, git)
 - crear enlaces simbolicos de los dotfiles
 - respaldar archivos existentes con extension `.bak`
-- preparar el entorno base para dwm, st y slstatus
-- instalar nvim con LazyVim como IDE principal
+- compilar e instalar dwm, st, slock y slstatus
+- soportar desinstalacion con --uninstall
 
 ---
 

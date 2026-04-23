@@ -1,1 +1,5 @@
 *.o
+*.out
+config.h
+*/bin/*
+background.png
