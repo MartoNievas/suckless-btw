@@ -28,7 +28,7 @@ suckless-btw/
 ### Laptop (Intel)
 
 ```bash
-sudo pacman -S base-devel git xorg-server xorg-xinit rofi pamixer xss-lock inetutils gsimplecal
+sudo pacman -S base-devel git xorg-server xorg-xinit rofi pamixer xss-lock inetutils gsimplecal xclip
 ```
 
 Paquetes AUR (requiere `yay`):
@@ -41,7 +41,7 @@ yay -S vesktop ttf-jetbrains-mono-nerd
 
 ```bash
 sudo pacman -S base-devel git xorg-server xorg-xinit rofi pamixer xss-lock inetutils gsimplecal \
-               mesa vulkan-radeon xf86-video-amdgpu lm_sensors
+               mesa vulkan-radeon xf86-video-amdgpu lm_sensors xclip
 ```
 
 Paquetes AUR (requiere `yay`):
