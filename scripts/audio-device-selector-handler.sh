@@ -20,8 +20,12 @@ chosen=$(echo "$devices" | dmenu -i -l 10 -p "Audio Output:" \
   -sf "$BLANCO")
 
 # 4. Cambiar el dispositivo
-id=$(echo "$chosen" | awk '{print $1}' | tr -d '.')
+id=$(echo "$chosen" | awk '{print $2}' | tr -d '.')
 
 if [ -n "$id" ]; then
   wpctl set-default "$id"
+
+  for stream in $(pactl list sink-inputs short | awk '{print $1}'); do
+    pactl move-sink-input "$stream" "$id" 2>/dev/null
+  done
 fi

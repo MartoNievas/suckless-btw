@@ -48,7 +48,18 @@ alias neofetch='fastfetch'
 alias vim="nvim"
 alias lss="ls | sort"
 alias dot="cd ~/dev/suckless-btw/dotfiles/"
-alias cuis="cd ~/Escritorio/linux64/ && (./run.sh &) && exit"
+
+if [[ $HOSTNAME == "archlinux-desktop" ]]; then
+  alias cuis="cd ~/escritorio/linux64/ && (./run.sh &) && exit"
+else
+  alias cuis="cd ~/escritorio/linux64/ && (./run.sh &) && exit"
+fi
+
+
+# --- PREFERENCIAS DE GIT ---
+
+alias git-up="git pull --recurse-submodules && git submodule update --remote --recursive --rebase"
+
 alias shortcuts="~/dev/suckless-btw/scripts/shortcuts.sh"
 
 # --- DWM CONFIG ---
