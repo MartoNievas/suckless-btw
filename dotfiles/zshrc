@@ -42,7 +42,6 @@ up() {
 
   cd "$dir"
 }
-
 alias ls='ls --color=auto'
 alias grep='grep --color=auto'
 alias neofetch='fastfetch'
@@ -51,7 +50,6 @@ alias lss="ls | sort"
 alias dot="cd ~/dev/suckless-btw/dotfiles/"
 alias cuis="cd ~/Escritorio/linux64/ && (./run.sh &) && exit"
 alias shortcuts="~/dev/suckless-btw/scripts/shortcuts.sh"
-
 
 # --- DWM CONFIG ---
 alias cdwm="vim ~/dev/suckless-btw/dwm/config.def.h"
