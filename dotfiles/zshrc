@@ -116,3 +116,18 @@ bindkey -e
 [[ -f /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh ]] && source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 [[ -f /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh ]] && source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 export PATH="$HOME/.npm-global/bin:$PATH"
+
+# --- GESTION DE CLAVE SSH ---
+
+# Archivo donde guardaremos la info del agente
+export SSH_AUTH_SOCK="$XDG_RUNTIME_DIR/ssh-agent.socket"
+
+# Si el socket no existe, iniciamos el agente
+if [ ! -S "$SSH_AUTH_SOCK" ]; then
+    ssh-agent -a "$SSH_AUTH_SOCK" > /dev/null
+fi
+
+# Intentar añadir la llave solo si no está ya cargada
+if ! ssh-add -l > /dev/null 2>&1; then
+    ssh-add ~/.ssh/id_ed25519
+fi
