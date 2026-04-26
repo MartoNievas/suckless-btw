@@ -48,6 +48,7 @@ alias neofetch='fastfetch'
 alias vim="nvim"
 alias lss="ls | sort"
 alias dot="cd ~/dev/suckless-btw/dotfiles/"
+alias cad="./$HOME/dev/suckless-btw/scripts/audio-device-selector-handler.sh" 
 
 if [[ $HOSTNAME == "archlinux-desktop" ]]; then
   alias cuis="cd ~/escritorio/linux64/ && (./run.sh &) && exit"

@@ -11,4 +11,7 @@ vim.keymap.set({ "n", "v" }, "C", '"_C', { desc = "Change line without yanking" 
 -- No mapeamos 'x' al registro negro, o lo mapeamos explícitamente al registro +
 vim.keymap.set({ "n", "v" }, "x", '"*x', { desc = "Cut character to system clipboard" })
 
+-- Para ir hasta la proxima coincidencia y centrar la vista
+vim.keymap.set("n", "n", "nzzzv")
+vim.keymap.set("n", "N", "Nzzzv")
 return {}
