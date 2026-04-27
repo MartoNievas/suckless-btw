@@ -42,6 +42,18 @@ up() {
 
   cd "$dir"
 }
+
+git-update() {
+  local commit=$1
+
+  if [[ -z "$commit" ]]; then
+    echo "Empty commit message, please write an informative message" 
+    return 1 
+  fi
+
+  git add . && git commit -m "$commit" && git push
+}
+
 alias ls='ls --color=auto'
 alias grep='grep --color=auto'
 alias neofetch='fastfetch'
