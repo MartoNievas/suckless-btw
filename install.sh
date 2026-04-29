@@ -30,6 +30,7 @@ declare -A BASE_LINKS=(
   [xinitrc]="$HOME/.xinitrc"
   [rofi_config]="$HOME/.config/rofi/config.rasi"
   [nvim]="$HOME/.config/nvim"
+  [tmux]="$HOME"/.tmux.conf
 )
 
 # Links adicionales por máquina: [nombre]="destino"

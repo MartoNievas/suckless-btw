@@ -62,12 +62,13 @@ alias lss="ls | sort"
 alias dot="cd ~/dev/suckless-btw/dotfiles/"
 alias cad="./$HOME/dev/suckless-btw/scripts/audio-device-selector-handler.sh" 
 
-if [[ $HOSTNAME == "archlinux-desktop" ]]; then
-  alias cuis="cd ~/escritorio/linux64/ && (./run.sh &) && exit"
+if [[ "$(cat /etc/hostname)" == "archlinux-desktop" ]]; then
+  _cuis_path="$HOME/escritorio/linux64/"
 else
-  alias cuis="cd ~/escritorio/linux64/ && (./run.sh &) && exit"
+  _cuis_path="$HOME/Escritorio/linux64"
 fi
 
+alias cuis="cd $_cuis_path && (./run.sh &) && exit"
 
 # --- PREFERENCIAS DE GIT ---
 
