@@ -1,5 +1,4 @@
 # suckless-btw
-
 Meta-repositorio para orquestar un setup suckless basado en **dwm**, **st** y **slstatus**.
 No contiene código propio de dwm/st/slstatus. Utiliza **git submodules** para fijar versiones
 exactas de cada proyecto y proveer un único punto de instalación reproducible.
@@ -53,6 +52,39 @@ yay -S vesktop ttf-jetbrains-mono-nerd
 
 ---
 
+## Yazi
+
+Gestor de archivos en terminal. Requiere dependencias adicionales para habilitar previews.
+
+### Dependencias
+
+```bash
+sudo pacman -S yazi ffmpeg jq poppler fd ripgrep fzf zoxide imagemagick chafa 7zip
+```
+
+Paquetes AUR:
+
+```bash
+yay -S ueberzugpp resvg
+```
+
+| Paquete | Función |
+|---|---|
+| `ffmpeg` | Preview de video y audio |
+| `7zip` | Archivos comprimidos |
+| `jq` | Archivos JSON |
+| `poppler` | Preview de PDFs |
+| `fd` | Búsqueda de archivos |
+| `ripgrep` | Búsqueda de texto |
+| `fzf` | Búsqueda fuzzy |
+| `zoxide` | Navegación inteligente |
+| `imagemagick` | Conversión de imágenes |
+| `chafa` | Preview de imágenes en terminal |
+| `ueberzugpp` | Preview de imágenes con mejor calidad |
+| `resvg` | Preview de SVG |
+
+---
+
 ## Instalacion
 
 ### 1. Clonar el repositorio
@@ -81,11 +113,10 @@ Opciones disponibles:
 ```bash
 ./install.sh --dry-run    # Simular sin hacer cambios
 ./install.sh --force      # Forzar recompilacion de todo
-./install.sh --uninstall # Desinstalar y restaurar backups
+./install.sh --uninstall  # Desinstalar y restaurar backups
 ```
 
 El script se encarga de:
-
 - detectar el tipo de machine (ThinkPad T480 o Desktop Ryzen)
 - verificar dependencias (make, gcc, clang, git)
 - crear enlaces simbolicos de los dotfiles
