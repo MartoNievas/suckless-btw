@@ -31,6 +31,7 @@ declare -A BASE_LINKS=(
   [rofi_config]="$HOME/.config/rofi/config.rasi"
   [nvim]="$HOME/.config/nvim"
   [tmux]="$HOME"/.tmux.conf
+  [yazi]="$HOME"/.config/yazi
 )
 
 # Links adicionales por máquina: [nombre]="destino"
